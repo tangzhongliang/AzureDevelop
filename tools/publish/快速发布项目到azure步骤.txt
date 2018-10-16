@@ -1,0 +1,24 @@
+1.找到本机VS安装目录下的MSBuild目录 eg:H:\Microsoft Visual Studio\2017\Professional\MSBuild\15.0\Bin
+  系统环境变量Path目录中添加上该目录
+2.安装7z.exe，找到7z.exe根目录 eg:C:\Program Files (x86)\7-Zip
+  系统环境变量path目录中添加上该目录
+3.Copy Properties文件夹和functiondeploy.bat文件以及nuget.exe到项目根目录
+  eg: D:\MyWork\workspace\github\Mantis587\persian-server
+4.编辑functiondeply.bat文件发布到azure的目录 
+  eg:-n "rb-service-develop"   为发布到Devlop的目录
+  eg:-n "rb-service-develop/slots/dev-stage"  为发布到dev-stage目录下
+5.运行cmd 键入  az login  网页弹出登录azure页面，登录 ；账户:tangzhongliang@rst.ricoh.com  密码:rst200233T
+6.查看登录的Directory
+az account list --output table
+7.切换账户的subscription 
+复制账户目录的 subscription id
+az account set --subscription "subscription id"
+8.确认是否切换成功
+az account list --output table
+查看IsDefault是否切换至你指定的目录
+9.切换到项目根目录执行function.bat 
+web发布：
+修改webdeploy.bat中Password为对应配置文件中的值，切换到项目根目录下执行
+
+
+%SystemRoot%\system32;%SystemRoot%;%SystemRoot%\System32\Wbem;%SYSTEMROOT%\System32\WindowsPowerShell\v1.0\;%JAVA_HOME%\bin\;%SDK_HOME%\platform-tools\;%SDK_HOME%\tools\;%NDK_HOME%\;C:\Program Files\Microsoft SQL Server\110\Tools\Binn\;C:\Qt\Qt5.7.0\Tools\mingw530_32\bin\;C:\Qt\Qt5.7.0\5.7\mingw53_32\bin\;C:\Program Files (x86)\CMake\bin;%ANT_HOME%\bin;C:\work-software\opencv\mingw_use\bin;C:\work-software\cscope-15.7a-win32rev18-static\;C:\Program Files (x86)\Git\mingw32\bin\;C:\work-software\ctags58\ctags58\;%VIM_HOME%\vim74\;C:\Program Files (x86)\Python\;C:\Program Files\TortoiseSVN\bin;%NDK_HOME%\toolchains\;C:\Program Files (x86)\Python\Scripts\;C:\Go\bin;C:\Program Files\MySQL\MySQL Utilities 1.6\;C:\Program Files\TortoiseGit\bin;%systemroot%\System32\WindowsPowerShell\v1.0\;%pm%/;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\dotnet\;C:\Program Files\nodejs\;C:\MinGW\bin
